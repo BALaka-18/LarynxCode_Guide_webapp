@@ -1,0 +1,57 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{% static 'styles/ccr.css' %}" />
+    </head>
+
+    <body style="background-color: #073b4c;;">
+
+        <div id="particles-js">
+            <section id="team" style="margin-top: 10vh;">
+                <div class="container">
+                    <div class="grid">
+                    <!-- #str heroes -->
+                    <!-- #abaddon -->
+                        {% for card in cards %}
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <!--<img src="{{baseUrl}}/{{card.img}}" alt="Avatar" style="width: 150px; height: 150px;" />-->
+                                        <h2 style="text-align: center; justify-content: center; margin-top: 30%;">{{card.name}}</h2>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <br />
+                                        <h3>{{card.desc}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+        <script>
+            particlesJS.load('particles-js', "{% static 'js/particles.json' %}", function() {
+                console.log('callback - particles.js config loaded');
+            });
+        </script>
+        <script>
+            window.onload = function(){
+              var a = document.createElement("a");
+              a.href = "{% static 'js/CCR_Rules.pdf' %}";
+              a.download = true;
+              a.click();
+            };
+        </script>
+    </body>
+
+</html>
