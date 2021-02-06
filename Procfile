@@ -1,1 +1,1 @@
-web: gunicorn caster.wsgi
+web: gunicorn caster.wsgi --log-file -
