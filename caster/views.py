@@ -10,6 +10,8 @@ def index(request):
     return render(request,'index.html',{"header" : header})
 
 def general(request):
+    title_icon = Description()
+    title_icon.img = 'larynxcode.png'
     card0 = Description()
     card0.name = 'caster on'
     card0.desc = "Wakes casterup, activates the microphone"
@@ -49,9 +51,11 @@ def general(request):
 
     cards = [card0,card1,card2,card3,card4,card5,card6,card7,
             card8,card9,card10,card11]
-    return render(request,'general.html',{"cards" : cards})
+    return render(request,'general.html',{"cards" : cards, "title_icon" : title_icon})
 
 def ccr(request):
+    title_icon = Description()
+    title_icon.img = 'larynxcode.png'
     card0 = Description()
     card0.name = 'enable <programming language>'
     card0.desc = "Tells Caster which language we want to code in"
@@ -79,7 +83,4 @@ def ccr(request):
     
 
     cards = [card0,card1,card2,card3,card4,card5,card6,card7]
-    return render(request,'ccr.html',{"cards" : cards})
-
-def justpy(request):
-    return render(request,'justpy.html')
+    return render(request,'ccr.html',{"cards" : cards, "title_icon" : title_icon})
